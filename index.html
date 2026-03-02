@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfaz Nawaz Khan - Portfolio</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Ensure smooth font rendering */
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body id="body" style="margin: 0; padding: 0; background-color: #0f0f0f; color: #ffffff;">
+
+    <!-- Navigation Bar -->
+    <nav style="background: linear-gradient(90deg, #00f0ff, #7f00ff); padding: 1em; text-align: center; box-shadow: 0 0 10px #00f0ff; position: sticky; top: 0; z-index: 1000; width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="#" onclick="showPage('home'); return false;" style="color: white; text-decoration: none; margin: 0 5px; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#00f0ff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Home</a>
+                <a href="#" onclick="showPage('about'); return false;" style="color: white; text-decoration: none; margin: 0 5px; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#00f0ff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">About</a>
+                <a href="#" onclick="showPage('skills'); return false;" style="color: white; text-decoration: none; margin: 0 5px; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#00f0ff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Skills</a>
+                <a href="#" onclick="showPage('portfolio'); return false;" style="color: white; text-decoration: none; margin: 0 5px; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#00f0ff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Portfolio</a>
+                <a href="#" onclick="showPage('contact'); return false;" style="color: white; text-decoration: none; margin: 0 5px; font-weight: bold; padding: 5px 10px; border-radius: 5px; transition: all 0.3s;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'; this.style.color='#00f0ff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Contact</a>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="setMode('dark')" id="darkBtn" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; backdrop-filter: blur(5px); min-width: 80px;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">🌙 Dark</button>
+                <button onclick="setMode('light')" id="lightBtn" style="background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; backdrop-filter: blur(5px); min-width: 80px;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">☀️ Light</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="content" id="content" style="padding: 3em 5%; max-width: 1000px; margin: 0 auto; flex: 1; width: 100%;">
+        
+        <!-- Home Page Content -->
+        <div id="home" style="display: block;">
+            <h1 id="home-title" style="color: #00f0ff; border-bottom: 2px solid #7f00ff; padding-bottom: 0.3em; margin-bottom: 1em; text-shadow: 0 0 5px #00f0ff; font-size: clamp(1.8em, 5vw, 2.5em);">Md. Alfaz Nawaz Khan</h1>
+            <p id="home-subtitle" style="margin-bottom: 0.5em; font-size: clamp(1em, 3vw, 1.2em); color: #e0e0e0;">Diploma in Computer Engineering Student</p>
+            <p id="home-location" style="color: #b0b0b0;">Gopalpur, Lalpur, Natore, Bangladesh</p>
+        </div>
+
+        <!-- About Page Content -->
+        <div id="about" style="display: none;">
+            <h2 id="about-title" style="color: #00f0ff; border-bottom: 2px solid #7f00ff; padding-bottom: 0.3em; margin-bottom: 1em; text-shadow: 0 0 5px #00f0ff;">About Me</h2>
+            <p id="about-text" style="margin-bottom: 1.5em; color: #e0e0e0;">As a Diploma in Computer Engineering student, I've worked on Flask to-do apps and am developing skills in data science and machine learning.</p>
+            
+            <h3 id="education-title" style="color: #00f0ff; margin: 1.5em 0 0.5em;">Education</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li id="edu-1" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff; word-break: break-word;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'"><strong style="color: #00f0ff;">Diploma in Engineering</strong> <span style="color: #e0e0e0;">– Rajshahi Polytechnic Institute (Running) – CGPA 3.5</span></li>
+                <li id="edu-2" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff; word-break: break-word;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'"><strong style="color: #00f0ff;">SSC</strong> <span style="color: #e0e0e0;">– Gopalpur High School, 2021 – GPA 4.89</span></li>
+            </ul>
+
+            <h3 id="languages-title" style="color: #00f0ff; margin: 1.5em 0 0.5em;">Languages</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li id="lang-1" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; color: #ffffff;">English <span style="color: #b0b0b0;">– Medium</span></li>
+                <li id="lang-2" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; color: #ffffff;">Bangla <span style="color: #b0b0b0;">– Good</span></li>
+                <li id="lang-3" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; color: #ffffff;">Arabic <span style="color: #b0b0b0;">– Beginner</span></li>
+            </ul>
+        </div>
+
+        <!-- Skills Page Content -->
+        <div id="skills" style="display: none;">
+            <h2 id="skills-title" style="color: #00f0ff; border-bottom: 2px solid #7f00ff; padding-bottom: 0.3em; margin-bottom: 1em; text-shadow: 0 0 5px #00f0ff;">Skills</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                <li id="skill-1" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Python <span style="color: #b0b0b0;">(Basic to Intermediate)</span></li>
+                <li id="skill-2" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Flask Web Development</li>
+                <li id="skill-3" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">HTML, CSS</li>
+                <li id="skill-4" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">MS Office <span style="color: #b0b0b0;">(Word, Excel, PowerPoint, Access)</span></li>
+                <li id="skill-5" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Data Science and Machine Learning <span style="color: #b0b0b0;">(Intermediate)</span></li>
+            </ul>
+        </div>
+
+        <!-- Portfolio Page Content -->
+        <div id="portfolio" style="display: none;">
+            <h2 id="portfolio-title" style="color: #00f0ff; border-bottom: 2px solid #7f00ff; padding-bottom: 0.3em; margin-bottom: 1em; text-shadow: 0 0 5px #00f0ff;">Portfolio</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                <li id="portfolio-1" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">100+ PowerPoint Designs</li>
+                <li id="portfolio-2" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">15+ Python Flask Projects</li>
+                <li id="portfolio-3" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Student Grade Tracker <span style="color: #b0b0b0;">(Flask)</span></li>
+                <li id="portfolio-4" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Fitness Tracking Project <span style="color: #b0b0b0;">(Flask + Data Science)</span></li>
+                <li id="portfolio-5" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Visiting Card Design <span style="color: #b0b0b0;">(PowerPoint)</span></li>
+                <li id="portfolio-6" style="background: #1e1e1e; margin: 0.5em 0; padding: 1em; border-left: 5px solid #00f0ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='#2d2d2d'" onmouseout="this.style.transform='translateX(0)'; this.style.background='#1e1e1e'">Student ID Card Design <span style="color: #b0b0b0;">(MS Word)</span></li>
+                <li id="portfolio-7" style="background: linear-gradient(45deg, #1e1e1e, #2d2d2d); margin: 0.5em 0; padding: 1.2em; border-left: 5px solid #ff44ff; border-radius: 0 8px 8px 0; transition: all 0.3s; color: #ffffff; font-weight: bold; box-shadow: 0 0 15px rgba(255,68,255,0.3);" onmouseover="this.style.transform='translateX(5px)'; this.style.background='linear-gradient(45deg, #2d2d2d, #3d3d3d)'; this.style.boxShadow='0 0 20px rgba(255,68,255,0.5)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='linear-gradient(45deg, #1e1e1e, #2d2d2d)'; this.style.boxShadow='0 0 15px rgba(255,68,255,0.3)'">🚀 <span style="color: #ffaaff;">Solved 400+ problems using Python</span> <span style="color: #b0b0b0;">(NumPy, Pandas, Matplotlib & Seaborn)</span></li>
+            </ul>
+        </div>
+
+        <!-- Contact Page Content -->
+        <div id="contact" style="display: none;">
+            <h2 id="contact-title" style="color: #00f0ff; border-bottom: 2px solid #7f00ff; padding-bottom: 0.3em; margin-bottom: 1em; text-shadow: 0 0 5px #00f0ff;">Contact</h2>
+            <p id="contact-email" style="margin: 1em 0; color: #e0e0e0; word-break: break-word;">Email: <a href="mailto:alfaznawaz2016@gmail.com" style="color: #00f0ff; text-decoration: underline; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.textShadow='0 0 8px #00f0ff'" onmouseout="this.style.textShadow='none'">alfaznawaz2016@gmail.com</a></p>
+            <p id="contact-phone" style="margin: 1em 0; color: #e0e0e0;">Phone: <span style="color: #ffffff; font-weight: bold;">+88 01714-864556</span></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" style="text-align: center; margin-top: 2em; padding: 2em; background: #1a1a1a; color: #888; border-top: 1px solid #333; width: 100%;">
+        <p>© 2025 Alfaz Nawaz Khan. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Consolidated show page function
+        function showPage(pageId) {
+            const pages = ['home', 'about', 'skills', 'portfolio', 'contact'];
+            pages.forEach(page => {
+                const element = document.getElementById(page);
+                if (element) element.style.display = 'none';
+            });
+            
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+                window.location.hash = pageId;
+            }
+        }
+
+        // Unified mode switching function
+        function setMode(mode) {
+            if (mode === 'dark') {
+                // Dark mode colors
+                document.getElementById('body').style.backgroundColor = '#0f0f0f';
+                document.getElementById('body').style.color = '#ffffff';
+                
+                // Home page
+                document.getElementById('home-title').style.cssText = 'color: #00f0ff; border-bottom: 2px solid #7f00ff; text-shadow: 0 0 5px #00f0ff;';
+                document.getElementById('home-subtitle').style.color = '#e0e0e0';
+                document.getElementById('home-location').style.color = '#b0b0b0';
+                
+                // About page
+                document.getElementById('about-title').style.cssText = 'color: #00f0ff; border-bottom: 2px solid #7f00ff; text-shadow: 0 0 5px #00f0ff;';
+                document.getElementById('about-text').style.color = '#e0e0e0';
+                document.getElementById('education-title').style.cssText = 'color: #00f0ff; margin: 1.5em 0 0.5em; text-shadow: none;';
+                document.getElementById('languages-title').style.cssText = 'color: #00f0ff; margin: 1.5em 0 0.5em; text-shadow: none;';
+                
+                // Skills page
+                document.getElementById('skills-title').style.cssText = 'color: #00f0ff; border-bottom: 2px solid #7f00ff; text-shadow: 0 0 5px #00f0ff;';
+                
+                // Portfolio page
+                document.getElementById('portfolio-title').style.cssText = 'color: #00f0ff; border-bottom: 2px solid #7f00ff; text-shadow: 0 0 5px #00f0ff;';
+                
+                // Contact page
+                document.getElementById('contact-title').style.cssText = 'color: #00f0ff; border-bottom: 2px solid #7f00ff; text-shadow: 0 0 5px #00f0ff;';
+                document.getElementById('contact-email').style.color = '#e0e0e0';
+                document.getElementById('contact-phone').style.color = '#e0e0e0';
+                
+                // All list items except special
+                document.querySelectorAll('li:not(#portfolio-7)').forEach(item => {
+                    item.style.background = '#1e1e1e';
+                    item.style.color = '#ffffff';
+                    item.style.borderLeftColor = '#00f0ff';
+                    item.style.boxShadow = 'none';
+                });
+                
+                // Special portfolio item
+                const specialItem = document.getElementById('portfolio-7');
+                if (specialItem) {
+                    specialItem.style.background = 'linear-gradient(45deg, #1e1e1e, #2d2d2d)';
+                    specialItem.style.color = '#ffffff';
+                    specialItem.style.borderLeftColor = '#ff44ff';
+                    specialItem.style.boxShadow = '0 0 15px rgba(255,68,255,0.3)';
+                }
+                
+                // Footer
+                document.getElementById('footer').style.cssText = 'background: #1a1a1a; color: #888; border-top-color: #333;';
+                
+                localStorage.setItem('mode', 'dark');
+            } else {
+                // Light mode colors
+                document.getElementById('body').style.backgroundColor = '#f8f9fa';
+                document.getElementById('body').style.color = '#1a1a1a';
+                
+                // Home page - Black titles with dark blue aura
+                document.getElementById('home-title').style.cssText = 'color: #000000; border-bottom: 2px solid #4169E1; text-shadow: 0 0 8px #4169E1, 0 0 15px #1E3A8A;';
+                document.getElementById('home-subtitle').style.color = '#2c3e50';
+                document.getElementById('home-location').style.color = '#34495e';
+                
+                // About page
+                document.getElementById('about-title').style.cssText = 'color: #000000; border-bottom: 2px solid #4169E1; text-shadow: 0 0 8px #4169E1, 0 0 15px #1E3A8A;';
+                document.getElementById('about-text').style.color = '#2c3e50';
+                document.getElementById('education-title').style.cssText = 'color: #000000; margin: 1.5em 0 0.5em; text-shadow: 0 0 5px #4169E1;';
+                document.getElementById('languages-title').style.cssText = 'color: #000000; margin: 1.5em 0 0.5em; text-shadow: 0 0 5px #4169E1;';
+                
+                // Skills page
+                document.getElementById('skills-title').style.cssText = 'color: #000000; border-bottom: 2px solid #4169E1; text-shadow: 0 0 8px #4169E1, 0 0 15px #1E3A8A;';
+                
+                // Portfolio page
+                document.getElementById('portfolio-title').style.cssText = 'color: #000000; border-bottom: 2px solid #4169E1; text-shadow: 0 0 8px #4169E1, 0 0 15px #1E3A8A;';
+                
+                // Contact page
+                document.getElementById('contact-title').style.cssText = 'color: #000000; border-bottom: 2px solid #4169E1; text-shadow: 0 0 8px #4169E1, 0 0 15px #1E3A8A;';
+                document.getElementById('contact-email').style.color = '#2c3e50';
+                document.getElementById('contact-phone').style.color = '#2c3e50';
+                
+                // All list items except special
+                document.querySelectorAll('li:not(#portfolio-7)').forEach(item => {
+                    item.style.background = '#ffffff';
+                    item.style.color = '#1a1a1a';
+                    item.style.borderLeftColor = '#4169E1';
+                    item.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                });
+                
+                // Special portfolio item
+                const specialItem = document.getElementById('portfolio-7');
+                if (specialItem) {
+                    specialItem.style.background = 'linear-gradient(45deg, #ffffff, #f0f0f0)';
+                    specialItem.style.color = '#1a1a1a';
+                    specialItem.style.borderLeftColor = '#ff44ff';
+                    specialItem.style.boxShadow = '0 4px 10px rgba(255,68,255,0.2)';
+                }
+                
+                // Footer
+                document.getElementById('footer').style.cssText = 'background: #e9ecef; color: #495057; border-top-color: #dee2e6;';
+                
+                localStorage.setItem('mode', 'light');
+            }
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            // Handle URL hash
+            if (window.location.hash) {
+                const pageId = window.location.hash.substring(1);
+                if (document.getElementById(pageId)) {
+                    showPage(pageId);
+                }
+            }
+            
+            // Load saved mode
+            const savedMode = localStorage.getItem('mode') || 'dark';
+            setMode(savedMode);
+        };
+
+        // Handle browser back/forward buttons
+        window.onhashchange = function() {
+            if (window.location.hash) {
+                const pageId = window.location.hash.substring(1);
+                if (document.getElementById(pageId)) {
+                    showPage(pageId);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
